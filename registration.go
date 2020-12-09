@@ -9,35 +9,31 @@ import (
 )
 
 func reqHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
-	var respBody = "nothing"
-	var respBodyAllow = `{"commands":[{"type":"com.okta.action.update","value":{"registration": "ALLOW"}}]}`
-	var respBodyErr = `{
-		"commands": [{
-			"type": "com.okta.action.update",
-			"value": {
-				"registration": "DENY"
-			}
-		}],
-		"error": {
-			"errorSummary": "Errors were found in the user profile",
-			"errorCauses": [{
-				"errorSummary": "You specified an invalid email domain",
-				"reason": "INVALID_EMAIL_DOMAIN"
-			}]
-		}
-	}`
-	
-	var requestBody = request.Body
-	if strings.Contains(requestBody, "@mailinator.com"){
-		respBody = respBodyAllow
+	var responsebody = "nothing"
+	var requestbody = request.Body
+	if strings.Contains(requestbody, "@mailinator.com"){
+		responsebody =  `{"commands":[{"type":"com.okta.action.update","value":{"registration": "ALLOW"}}]}`
         } else {
-		respBody = respBodyErr
+		responsebody = `{
+			"commands": [{
+				"type": "com.okta.action.update",
+				"value": {
+					"registration": "DENY"
+				}
+			}],
+			"error": {
+				"errorSummary": "Errors were found in the user profile",
+				"errorCauses": [{
+					"errorSummary": "You specified an invalid email domain",
+					"reason": "INVALID_EMAIL_DOMAIN"
+				}]
+			}
+		}`
 	}
-
 	resp := events.APIGatewayProxyResponse{
 		StatusCode:      200,
 		IsBase64Encoded: false,
-		Body:            respBody,
+		Body:            responsebody,
 		Headers: map[string]string{
 			"Content-Type": "application/json",
 		},
