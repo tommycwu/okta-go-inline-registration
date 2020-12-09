@@ -12,24 +12,10 @@ func reqHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRe
 	var respbody string
 	reqbody := request.Body
 	if strings.Contains(reqbody, "@mailinator.com"){
-		respbody = `{"commands":[{"type":"com.okta.action.update","value":{"registration": "ALLOW"}}]}`
+		respbody = "a"
         }
 	else {
-		respbody = `{
-			"commands": [{
-				"type": "com.okta.action.update",
-				"value": {
-					"registration": "DENY"
-				}
-			}],
-			"error": {
-				"errorSummary": "Errors were found in the user profile",
-				"errorCauses": [{
-					"errorSummary": "You specified an invalid email domain",
-					"reason": "INVALID_EMAIL_DOMAIN"
-				}]
-			}
-		}`
+		respbody = "b"
 	}
 	resp = events.APIGatewayProxyResponse{
 		StatusCode:      200,
