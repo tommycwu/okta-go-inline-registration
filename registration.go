@@ -24,8 +24,8 @@ func reqHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRe
 			}]
 		}
 	}`
-	requestbody := request.Body
-	if strings.Contains(requestbody, "@mailinator.com"){
+	emailbody := request.Body
+	if strings.Contains(emailbody, "@mailinator.com"){
 		log.Println("yes")
         } else {
 		log.Println("no")
