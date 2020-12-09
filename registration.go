@@ -9,7 +9,7 @@ import (
 )
 
 func reqHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
-	var respbody string
+	var respbody string = "z"
 	reqbody := request.Body
 	if strings.Contains(reqbody, "@mailinator.com"){
 		respbody = "a"
