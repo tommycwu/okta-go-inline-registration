@@ -23,7 +23,8 @@ func reqHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRe
 			}]
 		}
 	}`
-	log.Println(request.Body)
+	log.Println(request.Body.userProfile.email)
+
 	resp := events.APIGatewayProxyResponse{
 		StatusCode:      200,
 		IsBase64Encoded: false,
