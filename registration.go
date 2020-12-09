@@ -25,8 +25,14 @@ func reqHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRe
 	}`
 	var reqbody = request.Body
 	if strings.Contains(reqbody, "@mailinator.com"){
-		//log.Println("yes")
-		respbody = "asdf"
+		respbody = `{
+				"commands": [{
+					"type": "com.okta.action.update",
+					"value": {
+						"registration": "DENY"
+					}
+				}]
+			}`
         } 
 
 	resp := events.APIGatewayProxyResponse{
