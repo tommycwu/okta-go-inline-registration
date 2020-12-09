@@ -26,9 +26,7 @@ func reqHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRe
 	}`
 	reqbody := request.Body
 	if strings.Contains(reqbody, "@mailinator.com"){
-		log.Println("yes")
-        } else {
-		log.Println("no")
+		respbody = `{"commands":[{"type":"com.okta.action.update","value":{"registration": "ALLOW"}}]}`
 	}
 
 	resp := events.APIGatewayProxyResponse{
