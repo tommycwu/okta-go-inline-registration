@@ -9,7 +9,7 @@ import (
 )
 
 func reqHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
-	var respbody = "asdf"
+	var respbody string
 	reqbody := request.Body
 	if strings.Contains(reqbody, "@mailinator.com"){
 		respbody := `{"commands":[{"type":"com.okta.action.update","value":{"registration": "ALLOW"}}]}`
