@@ -7,7 +7,26 @@ import (
 )
 
 func reqHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
-	var body = `{"commands":[{"type":"com.okta.action.update","value":{"registration": "DENY"}}]}`
+	var body = `{
+		"commands": [{
+			"type": "com.okta.action.update",
+			"value": {
+				"registration": "DENY"
+			}
+		}]
+	},
+	{
+		"error": {
+			"errorSummary": "Errors were found in the user profile",
+			"errorCauses": [{
+				"errorSummary": "You specified an invalid email domain",
+				"reason": "INVALID_EMAIL_DOMAIN",
+				"locationType": "body",
+				"location": "data.userProfile.login",
+				"domain": "end-user"
+			}]
+		}
+	}`
 	resp := events.APIGatewayProxyResponse{
 		StatusCode:      200,
 		IsBase64Encoded: false,
