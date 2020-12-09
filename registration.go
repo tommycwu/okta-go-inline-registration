@@ -12,10 +12,10 @@ func reqHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRe
 	var respbody string = "z"
 	reqbody := request.Body
 	if strings.Contains(reqbody, "@mailinator.com"){
-		respbody = "a"
+		log.Println("yes")
         }
-	else {
-		respbody = "b"
+	else {		
+		log.Println("no")
 	}
 	resp = events.APIGatewayProxyResponse{
 		StatusCode:      200,
