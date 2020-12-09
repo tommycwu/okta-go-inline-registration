@@ -26,8 +26,8 @@ func reqHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRe
 	}`
 	var reqbody = request.Body
 	if strings.Contains(reqbody, "@mailinator.com"){
-		log.Println("yes")
-		//respbody = "asdf"
+		//log.Println("yes")
+		respbody = "asdf"
         } 
 
 	resp := events.APIGatewayProxyResponse{
