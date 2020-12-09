@@ -24,10 +24,13 @@ func reqHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRe
 		}
 	}`
 	
-	var result map[string]interface{}
-	json.NewDecoder(request.Body).Decode(&result)
-	log.Println(result["email"])
-	//log.Println(request.Body)
+	var bodystring = request.Body
+	if strings.Contains(bodystring, "@mailinator.com"){
+		log.Println("yes")
+        } else {
+		log.Println("no")
+	}
+
 
 	resp := events.APIGatewayProxyResponse{
 		StatusCode:      200,
