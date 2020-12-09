@@ -2,15 +2,13 @@ package main
 
 import (
 	"net/http"
+	"log"
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
 )
 
 func reqHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
-	
-	var bodyok = `{"commands":[{"type":"com.okta.action.update","value":{"registration": "ALLOW"}}]}`
-	
-	var bodyerr = `{
+	var body = `{
 		"commands": [{
 			"type": "com.okta.action.update",
 			"value": {
@@ -18,18 +16,18 @@ func reqHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRe
 			}
 		}],
 		"error": {
-			"errorSummary": "You specified an invalid email domain",
+			"errorSummary": "Errors were found in the user profile",
 			"errorCauses": [{
 				"errorSummary": "You specified an invalid email domain",
 				"reason": "INVALID_EMAIL_DOMAIN"
 			}]
 		}
 	}`
-
+	log.Println(request.Body)
 	resp := events.APIGatewayProxyResponse{
 		StatusCode:      200,
 		IsBase64Encoded: false,
-		Body:            bodyerr,
+		Body:            body,
 		Headers: map[string]string{
 			"Content-Type": "application/json",
 		},
