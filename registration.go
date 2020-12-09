@@ -7,7 +7,7 @@ import (
 )
 
 func reqHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
-	var body = `commands = [{"type": "com.okta.action.update","value": {"registration": "DENY"}}];`
+	var body = `{"commands":[{"type":"com.okta.action.update","value":[{"registration": "DENY"}]}]}`
 	resp := events.APIGatewayProxyResponse{
 		StatusCode:      200,
 		IsBase64Encoded: false,
