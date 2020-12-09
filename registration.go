@@ -18,9 +18,9 @@ func reqHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRe
 			}
 		}],
 		"error": {
-			"errorSummary": "Errors were found in the user profile",
+			"errorSummary": "You specified an invalid email domain",
 			"errorCauses": [{
-				"errorSummary": request.Body,
+				"errorSummary": "You specified an invalid email domain",
 				"reason": "INVALID_EMAIL_DOMAIN"
 			}]
 		}
