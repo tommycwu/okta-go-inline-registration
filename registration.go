@@ -9,7 +9,7 @@ import (
 )
 
 func reqHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
-	responsebody := `{
+	respbody := `{
 		"commands": [{
 			"type": "com.okta.action.update",
 			"value": {
@@ -24,16 +24,18 @@ func reqHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRe
 			}]
 		}
 	}`
-	if strings.Contains(request.Body, "@mailinator.com"){
+	var bodystring = request.Body
+	if strings.Contains(bodystring, "@mailinator.com"){
 		log.Println("yes")
         } else {
 		log.Println("no")
 	}
+	log.Println(bodystring)
 
 	resp := events.APIGatewayProxyResponse{
 		StatusCode:      200,
 		IsBase64Encoded: false,
-		Body:            body,
+		Body:            respbody,
 		Headers: map[string]string{
 			"Content-Type": "application/json",
 		},
