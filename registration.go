@@ -33,7 +33,6 @@ func reqHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRe
         } else {
 		respBody = respBodyErr
 	}
-	log.Println(bodystring)
 
 	resp := events.APIGatewayProxyResponse{
 		StatusCode:      200,
