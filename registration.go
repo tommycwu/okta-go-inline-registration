@@ -9,14 +9,13 @@ import (
 )
 
 func reqHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
-	var respbody string = "z"
+	var respbody = "z"
 	reqbody := request.Body
+	
 	if strings.Contains(reqbody, "@mailinator.com"){
 		log.Println("yes")
         }
-	else {		
-		log.Println("no")
-	}
+
 	resp = events.APIGatewayProxyResponse{
 		StatusCode:      200,
 		IsBase64Encoded: false,
