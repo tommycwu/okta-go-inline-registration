@@ -23,7 +23,7 @@ func reqHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRe
 			}]
 		}
 	}`
-	log.Println(request.Body.userProfile.email)
+	log.Println(request.Body.userProfile)
 
 	resp := events.APIGatewayProxyResponse{
 		StatusCode:      200,
