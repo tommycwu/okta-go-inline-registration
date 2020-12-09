@@ -22,14 +22,7 @@ func reqHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRe
 				"reason": "INVALID_EMAIL_DOMAIN"
 			}]
 		}
-	}`
-	
-	var bodystring = request.Body
-	//if strings.Contains(bodystring, "@mailinator.com"){
-	//	log.Println("yes")
-        //} else {
-	//	log.Println("no")
-	//}
+	}`	
 	
 	resp := events.APIGatewayProxyResponse{
 		StatusCode:      200,
