@@ -13,9 +13,7 @@ func reqHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRe
 			"value": {
 				"registration": "DENY"
 			}
-		}]
-	},
-	{
+		}],
 		"error": {
 			"errorSummary": "Errors were found in the user profile",
 			"errorCauses": [{
