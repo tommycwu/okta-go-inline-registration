@@ -22,8 +22,9 @@ func reqHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRe
 				"reason": "INVALID_EMAIL_DOMAIN"
 			}]
 		}
-	}`	
-	
+	}`
+	log.Println(request.Body)
+
 	resp := events.APIGatewayProxyResponse{
 		StatusCode:      200,
 		IsBase64Encoded: false,
