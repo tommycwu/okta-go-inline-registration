@@ -2,7 +2,7 @@ package main
 
 import (
 	"net/http"
-
+	"log"
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
 )
@@ -17,11 +17,12 @@ func reqHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRe
 			"Content-Type": "application/json",
 		},
 	}
-
+	log.Println("request handled")
 	return resp, nil
 }
 
 func clientError(status int) (events.APIGatewayProxyResponse, error) {
+	log.Println("error")
 	return events.APIGatewayProxyResponse{
 		StatusCode: status,
 		Body:       http.StatusText(status),
