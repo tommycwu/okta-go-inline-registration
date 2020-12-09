@@ -9,7 +9,7 @@ import (
 )
 
 func reqHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
-	respbody := `{
+	var respbody string = `{
 		"commands": [{
 			"type": "com.okta.action.update",
 			"value": {
