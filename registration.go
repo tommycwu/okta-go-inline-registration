@@ -29,7 +29,7 @@ func reqHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRe
 				"commands": [{
 					"type": "com.okta.action.update",
 					"value": {
-						"registration": "DENY"
+						"registration": "ALLOW"
 					}
 				}]
 			}`
