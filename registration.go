@@ -28,6 +28,9 @@ func reqHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRe
 	if strings.Contains(reqbody, "@mailinator.com"){
 		respbody = "test"
 	}
+	else {
+		respbody = "zzz"
+	}
 
 	resp := events.APIGatewayProxyResponse{
 		StatusCode:      200,
