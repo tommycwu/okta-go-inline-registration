@@ -2,7 +2,6 @@ package main
 
 import (
 	"net/http"
-	"log"
 	"strings"
 	"github.com/aws/aws-lambda-go/events"
 	"github.com/aws/aws-lambda-go/lambda"
