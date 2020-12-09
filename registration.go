@@ -14,7 +14,7 @@ func reqHandler(request events.APIGatewayProxyRequest) (events.APIGatewayProxyRe
 		respbody := `{"commands":[{"type":"com.okta.action.update","value":{"registration": "ALLOW"}}]}`
         }
 	else {
-	respbody := `{
+		respbody := `{
 			"commands": [{
 				"type": "com.okta.action.update",
 				"value": {
